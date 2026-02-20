@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LoveMatch</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+color:white;
+background:#000;
+overflow-x:hidden;
+}
+
+/* TOPBAR */
+.topbar{
+position:fixed;
+top:0;
+width:100%;
+background:black;
+padding:12px 20px;
+display:flex;
+align-items:center;
+z-index:1000;
+box-shadow:0 0 15px cyan;
+}
+.logo{
+font-size:20px;
+font-weight:bold;
+background:linear-gradient(90deg,#ff00ff,#00ffff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* HERO BACKGROUND SLIDER */
+.hero{
+min-height:100vh;
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding-top:80px;
+transition:background-image 1s ease-in-out;
+}
+
+/* HERO BOX */
+.hero-box{
+background:rgba(0,0,0,0.75);
+padding:35px;
+border-radius:25px;
+box-shadow:0 0 40px #ff00ff,0 0 80px #00ffff;
+max-width:500px;
+animation:glow 3s infinite alternate;
+}
+@keyframes glow{
+from{box-shadow:0 0 20px #ff00ff;}
+to{box-shadow:0 0 50px #00ffff;}
+}
+h1{
+font-size:32px;
+background:linear-gradient(90deg,#ff00ff,#00ffff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* CTA */
+.cta{
+margin-top:20px;
+padding:15px 40px;
+border-radius:50px;
+background:linear-gradient(90deg,#ff0080,#00ffff);
+color:white;
+font-weight:bold;
+border:none;
+font-size:18px;
+box-shadow:0 0 20px cyan;
+cursor:pointer;
+animation:pulse 1.5s infinite;
+}
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.1);}
+100%{transform:scale(1);}
+}
+
+/* INFO */
+.live,.timer{
+margin-top:10px;
+color:#00ffff;
+}
+
+/* SECTIONS */
+section{
+padding:60px 20px;
+text-align:center;
+background:#111;
+}
+.features,.steps,.testimonials{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+.box{
+background:#1a1a1a;
+padding:20px;
+border-radius:15px;
+box-shadow:0 0 15px #00ffff55;
+}
+.testimonial{
+box-shadow:0 0 15px #ff00ff55;
+}
+
+/* FAQ */
+.faq{
+max-width:800px;
+margin:auto;
+}
+.faq .box{
+margin-bottom:10px;
+}
+
+/* NOTIFICATION */
+.notify{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#111;
+padding:12px 20px;
+border-radius:30px;
+box-shadow:0 0 15px cyan;
+font-size:14px;
+}
+
+/* FOOTER */
+.footer{
+background:black;
+padding:20px;
+font-size:12px;
+color:#aaa;
+text-align:center;
+}
+
+@media(max-width:600px){
+h1{font-size:24px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+<div class="logo">LoveMatch</div>
+</div>
+
+<!-- HERO -->
+<div class="hero" id="hero">
+<div class="hero-box">
+<h1>Meet Hot Singles Near You ❤️</h1>
+<p>Join thousands of real people looking for love, chat and fun tonight.  
+Free registration – no credit card required.</p>
+
+<div class="live">🔥 312 Users Online Now</div>
+<div class="timer" id="countdown"></div>
+
+<button class="cta" onclick="window.location.href='https://hotpussieshere.com/9kx3xWWx?aid=hhghazfag&kid=hdgafghapdg'">
+Start Now Free
+</button>
+</div>
+</div>
+
+<!-- FEATURES -->
+<section>
+<h2>Why Choose Us?</h2>
+<div class="features">
+<div class="box">✔ 100% Free Sign Up</div>
+<div class="box">✔ Verified Profiles</div>
+<div class="box">✔ Instant Matches</div>
+<div class="box">✔ Private & Secure</div>
+<div class="box">✔ Mobile Friendly</div>
+<div class="box">✔ Real Chat</div>
+</div>
+</section>
+
+<!-- STEPS -->
+<section>
+<h2>How It Works</h2>
+<div class="steps">
+<div class="box">1️⃣ Register Free</div>
+<div class="box">2️⃣ Choose Matches</div>
+<div class="box">3️⃣ Start Chatting</div>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section>
+<h2>User Reviews</h2>
+<div class="testimonials">
+<div class="box testimonial">"I met my girlfriend here in 2 days!" – Alex</div>
+<div class="box testimonial">"So easy and fun." – Sophia</div>
+<div class="box testimonial">"Lots of real people chatting." – Michael</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section>
+<h2>FAQ</h2>
+<div class="faq">
+<div class="box">Is it free? – Yes, 100% free.</div>
+<div class="box">Are profiles real? – Yes, verified.</div>
+<div class="box">Is my data safe? – Fully protected.</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+<p>18+ Only | Privacy Policy | Terms of Service</p>
+<p>We do not store personal data. All profiles are handled by our partners.</p>
+</div>
+
+<!-- RANDOM NOTIFICATION -->
+<div class="notify" id="notify"></div>
+
+<script>
+// BACKGROUND SLIDER (HOT GIRLS ONLY)
+let images=[
+"https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e",
+"https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb",
+"https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+"https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+];
+let bg=0;
+document.getElementById("hero").style.backgroundImage="url('"+images[0]+"')";
+setInterval(()=>{
+bg=(bg+1)%images.length;
+document.getElementById("hero").style.backgroundImage="url('"+images[bg]+"')";
+},5000);
+
+// COUNTDOWN
+let time=300;
+setInterval(()=>{
+let m=Math.floor(time/60);
+let s=time%60;
+document.getElementById("countdown").innerHTML="⏳ Offer expires in: "+m+"m "+s+"s";
+time--;
+if(time<0){time=300;}
+},1000);
+
+// RANDOM NOTIFICATION EVERY 5s
+let names=["Anna","Sophia","Emily","Jessica","Olivia","Mia","Sara","Lily","Chloe","Bella"];
+let cities=["New York","London","Toronto","Paris","Berlin","Sydney","Madrid","Rome"];
+
+setInterval(()=>{
+let n=names[Math.floor(Math.random()*names.length)];
+let c=cities[Math.floor(Math.random()*cities.length)];
+document.getElementById("notify").innerHTML="💖 "+n+" from "+c+" just joined!";
+},5000);
+</script>
+
+</body>
+</html>
